@@ -1,0 +1,14 @@
+{
+    "name": "wangmanman123/demo",
+    "description": "test",
+    "type": "project",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "wangmanman123",
+            "email": "2241841662@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

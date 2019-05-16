@@ -4,6 +4,7 @@ namespace core;
 class imooc
 {
     public static $classMap = array();
+
     static public function run(){
         echo "启动框架...";
 
@@ -12,8 +13,15 @@ class imooc
 //        var_dump($_GET);
         $ctrl = $route->ctrl;
         $action  = $route->action;
-        if (is_file()){
+        $ctrlFile = APP.'/ctrl/'.$ctrl.'Ctrl.php';
+        $class = '\\app\\ctrl\\'.$ctrl.'Ctrl';
+        if (is_file($ctrlFile)){
+            include $ctrlFile;
+            $a = new $class();
+            $a->$action();
 
+        }else{
+            throw new \Exception("找不到控制器");
         }
     }
 
@@ -37,4 +45,6 @@ class imooc
         }
 
     }
+
+
 }

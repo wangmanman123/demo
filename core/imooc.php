@@ -8,6 +8,9 @@ class imooc
     static public function run(){
         echo "启动框架...";
 
+        \core\lib\log::init();
+        \core\lib\log::log('test','test');
+
         $route = new \core\lib\route();
 //        var_dump($route->ctrl);
 //        var_dump($_GET);

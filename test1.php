@@ -47,9 +47,10 @@
 //
 //demo2();
 //\demo1\demo();
-
+ini_set("display_errors",0);
+error_reporting(E_ALL);
 gettype($a);
-
+//trigger_error("a没有定义",E_NOTICE);
 //错误处理
 function my_error($error_type,$error_message,$file,$line){
     $exit = false;
@@ -72,11 +73,11 @@ function my_error($error_type,$error_message,$file,$line){
     echo $error.": ".$error_message." in ".$file." on ".$line;
 }
 
-set_error_handler("my_error");
+//set_error_handler("my_error");
 
 //trigger_error("退出程序",E_USER_WARNING);
 gettype($a);
-//get_Tyep();
+get_Tyep();
 
 
 

@@ -6,6 +6,7 @@
  * Time: 10:15
  */
 
+//命名空间
 //$b = "b";
 //echo include('test2.php');
 
@@ -47,11 +48,14 @@
 //
 //demo2();
 //\demo1\demo();
-ini_set("display_errors",0);
-error_reporting(E_ALL);
-gettype($a);
-//trigger_error("a没有定义",E_NOTICE);
+
+
 //错误处理
+ini_set("display_errors",1);
+error_reporting(E_ALL);
+//gettype($a);
+//trigger_error("a没有定义",E_NOTICE);
+
 function my_error($error_type,$error_message,$file,$line){
     $exit = false;
     switch ($error_type){
@@ -71,9 +75,11 @@ function my_error($error_type,$error_message,$file,$line){
     }
 
     echo $error.": ".$error_message." in ".$file." on ".$line;
+    error_log("发送错误",3,"E:/wamp64/logs/php_error.log");
+    error_log("发送错误",1,"2241841662@qq.com");
 }
 
-//set_error_handler("my_error");
+set_error_handler("my_error");
 
 //trigger_error("退出程序",E_USER_WARNING);
 gettype($a);

@@ -51,40 +51,91 @@
 
 
 //错误处理
-ini_set("display_errors",1);
-error_reporting(E_ALL);
+//ini_set("display_errors",1);
+//error_reporting(E_ALL);
+////gettype($a);
+////trigger_error("a没有定义",E_NOTICE);
+//
+//function my_error($error_type,$error_message,$file,$line){
+//    $exit = false;
+//    switch ($error_type){
+//        case E_NOTICE:
+//        case E_USER_NOTICE:
+//            $error = "注意";
+//            break;
+//        case E_WARNING:
+//        case E_USER_WARNING:
+//            $error = "警告";
+//            break;
+//        case E_ERROR:
+//        case E_USER_ERROR:
+//            $exit = true;
+//            $error = "错误";
+//            break;
+//    }
+//
+//    echo $error.": ".$error_message." in ".$file." on ".$line;
+//    error_log("发送错误",3,"E:/wamp64/logs/php_error.log");
+//    error_log("发送错误",1,"2241841662@qq.com");
+//}
+//
+//set_error_handler("my_error");
+//
+////trigger_error("退出程序",E_USER_WARNING);
 //gettype($a);
-//trigger_error("a没有定义",E_NOTICE);
+//get_Tyep();
 
-function my_error($error_type,$error_message,$file,$line){
-    $exit = false;
-    switch ($error_type){
-        case E_NOTICE:
-        case E_USER_NOTICE:
-            $error = "注意";
-            break;
-        case E_WARNING:
-        case E_USER_WARNING:
-            $error = "警告";
-            break;
-        case E_ERROR:
-        case E_USER_ERROR:
-            $exit = true;
-            $error = "错误";
-            break;
+
+class Superman
+{
+    protected $module;
+
+    public function __construct(SuperModuleInterface $module)
+    {
+        $this->module = $module;
     }
-
-    echo $error.": ".$error_message." in ".$file." on ".$line;
-    error_log("发送错误",3,"E:/wamp64/logs/php_error.log");
-    error_log("发送错误",1,"2241841662@qq.com");
 }
 
-set_error_handler("my_error");
+class Container
+{
+    public $binds;
 
-//trigger_error("退出程序",E_USER_WARNING);
-gettype($a);
-get_Tyep();
+    public $instances;
 
+    public function bind($abstract, $concrete)
+    {
+        if ($concrete instanceof Closure) {
+            $this->binds[$abstract] = $concrete;
+        } else {
+            $this->instances[$abstract] = $concrete;
+        }
+    }
+
+    public function make($abstract, $parameters = [])
+    {
+        if (isset($this->instances[$abstract])) {
+            return $this->instances[$abstract];
+        }
+
+        array_unshift($parameters, $this);
+        var_dump($parameters);exit;
+        return call_user_func_array($this->binds[$abstract], $parameters);
+    }
+}
+
+$container = new Container;
+
+
+//$container->bind('superman', function($container, $moduleName) {
+//    return new Superman($container->make($moduleName));
+//});
+
+$a = function($container, $moduleName) {
+    return new Superman($container->make($moduleName));
+};
+
+
+var_dump($a);exit;
 
 
 

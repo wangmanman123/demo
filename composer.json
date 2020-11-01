@@ -1,18 +1,13 @@
 {
     "name": "wangmanman123/demo",
-    "description": "php framework",
-    "type": "project",
-    "license": "mit",
+    "minimum-stability": "dev",
+    "require": {
+        "wangmanman123/learngit": "*"
+    },
     "authors": [
         {
             "name": "wangmanman123",
             "email": "2241841662@qq.com"
         }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">= 5.3.0",
-        "filp/whoops": "*"
-    }
+    ]
 }
-

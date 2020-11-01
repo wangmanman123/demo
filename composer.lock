@@ -1,0 +1,42 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "404c35ad3eb9c066b97ec525a90b599a",
+    "packages": [
+        {
+            "name": "wangmanman123/learngit",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wangmanman123/learngit.git",
+                "reference": "e167ce38e4a629dbb397d796e0663df2e22dbe9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wangmanman123/learngit/zipball/e167ce38e4a629dbb397d796e0663df2e22dbe9e",
+                "reference": "e167ce38e4a629dbb397d796e0663df2e22dbe9e",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "wangmanman123",
+                    "email": "2241841662@qq.com"
+                }
+            ],
+            "time": "2020-11-01T13:36:09+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
